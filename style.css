@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root{
+    --a:0
+}
 * {
     margin: 0;
     padding: 0;
@@ -60,7 +63,6 @@ body {
 
 .leftfooter {
     display: flex;
-    flex-wrap: wrap;
     font-size: 12px;
     gap: 13px;
     position: absolute;
@@ -91,6 +93,8 @@ body {
 
 .hamburger {
     display: none;
+    width: 35px;
+
 }
 
 .Spotifyplaylists {
@@ -115,10 +119,20 @@ body {
     object-fit: contain;
 
 }
-
-.Spotifyplaylists h1 {
-    margin: 10px;
+.card:hover{
+    background-color: rgb(100, 100, 100);
+    cursor: pointer;
+    transition: all 0.5s;
+    --a: 1
 }
+
+.playlist {
+    margin-left: 16px;
+    font-size: 35px;
+    font-weight: 1000;
+    margin-bottom: 16px ;
+}
+
 
 .cardcontainer {
     display: flex;
@@ -142,13 +156,15 @@ body {
     position: absolute;
     top: 189px;
     right: 18px;
+    opacity: var(--a);
+    transition: all 0.5s ease-out;
 }
 
 .Spotifyplaylists .playbar {
     position: fixed;
     bottom: 10px;
     background-color: white;
-    width: 70vw;
+    width: 71vw;
     padding: 10px;
     border-radius: 10px;
     filter: invert(1);
@@ -171,7 +187,7 @@ body {
 
 .songlist {
     margin-top: 30px;
-    height: 400px;
+    height: 600px;
     overflow: auto;
 
 }
@@ -201,6 +217,12 @@ body {
 .info div {
     font-size: 15px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.volume {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .playnow {
@@ -258,6 +280,10 @@ body {
     padding: 0 16px;
 }
 
+.vol {
+    display: flex;
+}
+
 /* or this one both give the same respone */
 
 /* .songinfo{
@@ -288,7 +314,6 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
         z-index: 1;
         background-color: #22352c;
 
-
     }
 
     .right {
@@ -312,7 +337,7 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
     .Spotifyplaylists .playbar {
         position: fixed;
         bottom: 10px;
-        background-color: white;
+        background-color: #f0f0f0;
         width: 92vw;
         padding: 10px;
         border-radius: 10px;
@@ -347,18 +372,35 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
         padding: 8px;
 
     }
+
     .library {
         position: relative;
         min-height: 62vh;
     }
-    .leftfooter{
+
+    .leftfooter {
         font-size: 8px;
     }
-    .seekbar{
+
+    .seekbar {
         width: 97%;
     }
-    .card {  
-        margin: 8px;  
+
+    .card {
+        margin: 8px;
+    }
+
+    .volume img {
+        height: 25px;
+    }
+
+    .range {
+        height: 25px;
+    }
+
+    .range input {
+        height: 8px;
+        width: 90px;
     }
 
 }
@@ -398,12 +440,12 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
     .Spotifyplaylists .playbar {
         position: fixed;
         bottom: 10px;
-        background-color: white;
+        background-color: #f3f3f1;
         width: 92vw;
         padding: 7px;
         border-radius: 10px;
         filter: invert(1);
-        height: 80px;
+        height: 120px;
 
     }
 
@@ -433,40 +475,79 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
         padding: 8px;
 
     }
+
     .library {
         position: relative;
         min-height: 62vh;
     }
-    .leftfooter{
+
+    .leftfooter {
         font-size: 8px;
     }
-    .seekbar{
+
+    .seekbar {
         width: 96%;
     }
-    .abovebar{
+
+    .abovebar {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 5px;
 
     }
-    .playbar >*{
+
+    .playbar>* {
         margin: 5px;
     }
-    .songbuttons{
+
+    .songbuttons {
         position: static;
     }
+
     .card {
-        width: 90vw; 
+        width: 90vw;
         margin: 2px 0;
 
     }
-    .nav svg{
+
+    .nav svg {
         display: none;
     }
 
+    .vol {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .volume img {
+        height: 26px;
+    }
+
+    .range {
+        height: 25px;
+    }
+
+    .range input {
+        height: 8px;
+        width: 70px;
+    }
+
+    .songinfo {
+        font-size: 17px;
+    }
+
+    .songtime {
+        font-size: 15px;
+    }
 
 }
+
 @media (min-width: 300px) and (max-width: 499px) {
 
 
@@ -502,12 +583,11 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
     .Spotifyplaylists .playbar {
         position: fixed;
         bottom: 10px;
-        background-color: white;
-        width: 88vw;
-        padding: 7px;
+        background-color: rgb(240, 240, 240);
+        width: 96vw;
         border-radius: 10px;
         filter: invert(1);
-        height: 80px;
+        height: 110px;
 
     }
 
@@ -537,57 +617,272 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
         padding: 8px;
 
     }
+
     .library {
         position: relative;
         min-height: 62vh;
     }
-    .leftfooter{
+
+    .leftfooter {
         font-size: 8px;
         flex-wrap: wrap;
     }
-    .seekbar{
+
+    .seekbar {
         width: 94%;
     }
-    .abovebar{
+
+    .abovebar {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 5px;
 
     }
-    .playbar >*{
-        margin: 5px;
+
+    .playbar>* {
+        margin: 3px;
     }
-    .songbuttons{
+
+    .songbuttons {
         position: static;
     }
-    .playnow{
+
+    .playnow {
         gap: 0;
         margin: 0;
         padding: 0;
         flex-direction: column;
     }
+
     .playnow span {
         font-size: 6px;
         width: 30px;
 
     }
-    .Spotifyplaylists{
+
+    .Spotifyplaylists {
         height: 100%;
         margin: 0;
         padding: 0;
     }
-    .cardcontainer{
+
+    .cardcontainer {
         overflow-y: auto;
         justify-content: center;
 
     }
+
     .card {
-        width: 90vw; 
+        width: 90vw;
         margin: 2px 0;
 
     }
-    .nav svg{
+
+    .nav svg {
         display: none;
+    }
+
+    .vol {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .volume img {
+        height: 26px;
+    }
+
+    .range {
+        height: 25px;
+    }
+
+    .range input {
+        height: 8px;
+        width: 70px;
+    }
+
+    .songinfo {
+        font-size: 13px;
+    }
+
+    .songtime {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 150px) and (max-width: 299px) {
+
+
+    .left {
+        position: absolute;
+        width: 250px;
+        left: -160%;
+        transition: all 0.3s;
+        z-index: 1;
+        background-color: #4c7475;
+
+
+    }
+
+    .right {
+        width: 110vw;
+        position: relative;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .Spotifyplaylists .playbar {
+        position: fixed;
+        bottom: 10px;
+        background-color: rgb(226, 226, 226);
+        width: 92vw;
+        border-radius: 10px;
+        filter: invert(1);
+        height: 110px;
+
+    }
+
+    .close {
+        display: block;
+    }
+
+    .songlist {
+        margin-top: 30px;
+        height: 45vh;
+        overflow: auto;
+
+    }
+
+    .info div {
+        font-size: 9px;
+    }
+
+    .playnow span {
+        font-size: 6px;
+    }
+
+    .songlist ul li {
+        gap: 10px;
+        border: 1px solid white;
+        margin: 4px 0px;
+        padding: 8px;
+
+    }
+
+    .library {
+        position: relative;
+        min-height: 62vh;
+    }
+
+    .leftfooter {
+        font-size: 8px;
+        flex-wrap: wrap;
+    }
+
+    .seekbar {
+        width: 94%;
+    }
+
+    .abovebar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+
+    }
+
+    .playbar>* {
+        margin: 3px;
+    }
+
+    .songbuttons {
+        position: static;
+    }
+
+    .playnow {
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        flex-direction: column;
+    }
+
+    .playnow span {
+        font-size: 6px;
+        width: 30px;
+
+    }
+
+    .Spotifyplaylists {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .cardcontainer {
+        overflow-y: auto;
+        justify-content: center;
+
+    }
+
+    .card {
+        width: 80vw;
+        margin: 2px 0;
+
+    }
+
+    .nav svg {
+        display: none;
+    }
+
+    .vol {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .volume img {
+        height: 26px;
+    }
+
+    .range {
+        height: 25px;
+    }
+
+    .range input {
+        height: 8px;
+        width: 70px;
+    }
+
+    .songinfo {
+        font-size: 13px;
+    }
+
+    .songtime {
+        font-size: 15px;
+    }
+    .playlist {
+        margin-left: 16px;
+        font-size: 20px;
+        font-weight: 1000;
     }
 }
