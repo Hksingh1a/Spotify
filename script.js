@@ -98,7 +98,9 @@ async function songlist() {
 
     document.querySelector(".seekbar").addEventListener("click", e => {
         let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100
-        document.querySelector(".circle").style.left = percent + "%"
+        document.querySelector(".circle").style.left = percent + "%";
+        console.log(percent)
+        currentsong.currentTime = ((currentsong.duration)*percent)/100
 
     })
 
